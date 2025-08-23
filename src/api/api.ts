@@ -307,7 +307,7 @@ export const historyEnsure = async (): Promise<CosmosDBHealth> => {
       console.error('There was an issue fetching your data.')
       return {
         cosmosDB: false,
-        status: err
+        status: err.message || 'Unknown error occurred'
       }
     })
   return response
