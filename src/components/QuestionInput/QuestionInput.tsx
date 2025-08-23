@@ -2,8 +2,6 @@ import { useContext, useState } from 'react'
 import { FontIcon, Stack, TextField } from '@fluentui/react'
 import { SendRegular } from '@fluentui/react-icons'
 
-import Send from '../../assets/Send.svg'
-
 import styles from './QuestionInput.module.css'
 import { ChatMessage } from '../../api'
 import { AppStateContext } from '../../state/AppProvider'
@@ -75,7 +73,7 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, conv
   const sendQuestionDisabled = disabled || !question.trim()
 
   return (
-    <Stack horizontal className={styles.questionInputContainer}>
+    <div className={styles.questionInputContainer}>
       <TextField
         className={styles.questionInputTextArea}
         placeholder={placeholder}
@@ -114,10 +112,9 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, conv
         {sendQuestionDisabled ? (
           <SendRegular className={styles.questionInputSendButtonDisabled} />
         ) : (
-          <img src={Send} className={styles.questionInputSendButton} alt="Send Button" />
+          <SendRegular className={styles.questionInputSendButton} />
         )}
       </div>
-      <div className={styles.questionInputBottomBorder} />
-    </Stack>
+    </div>
   )
 }
