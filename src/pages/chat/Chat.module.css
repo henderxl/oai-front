@@ -3,8 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: #fdfee5;
-  min-height: 100vh;
 }
 
 .chatRoot {
@@ -22,7 +20,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fdfee5;
+  background: radial-gradient(108.78% 108.78% at 50.02% 19.78%, #ffffff 57.29%, #eef6fe 100%);
+  box-shadow:
+    0px 2px 4px rgba(0, 0, 0, 0.14),
+    0px 0px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
   overflow-y: auto;
   max-height: calc(100vh - 100px);
 }
@@ -33,57 +35,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .chatEmptyStateTitle {
   font-style: normal;
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   display: flex;
   align-items: flex-end;
   text-align: center;
-  line-height: 52px;
-  margin-top: 32px;
-  margin-bottom: 16px;
-  color: #1e88e5;
-  font-family: 'Inter', sans-serif;
+  line-height: 24px;
+  margin-top: 36px;
+  margin-bottom: 0px;
 }
 
 .chatEmptyStateSubtitle {
-  margin-top: 8px;
-  margin-bottom: 24px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
-  align-items: flex-end;
-  text-align: center;
-  letter-spacing: -0.01em;
-  color: #1e88e5;
-  font-family: 'Inter', sans-serif;
-  max-width: 600px;
-}
-
-.chatEmptyStateDescription {
-  margin-top: 16px;
+  margin-top: 20px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
+  align-items: flex-end;
   text-align: center;
-  color: #374151;
-  font-family: 'Inter', sans-serif;
-  max-width: 700px;
+  letter-spacing: -0.01em;
+  color: #616161;
 }
 
 .chatIcon {
-  height: 120px;
+  height: 62px;
   width: auto;
-  margin-bottom: 20px;
 }
 
 .chatMessageStream {
@@ -108,7 +88,7 @@
   position: relative;
   display: flex;
   padding: 20px;
-  background: #ffffff;
+  background: #edf5fd;
   border-radius: 8px;
   box-shadow:
     0px 2px 4px rgba(0, 0, 0, 0.14),
@@ -123,7 +103,6 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   max-width: 80%;
-  font-family: 'Inter', sans-serif;
 }
 
 .chatMessageGpt {
@@ -147,7 +126,7 @@
 }
 
 .chatMessageErrorContent {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Segoe UI';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -182,19 +161,9 @@
   height: 40px;
   left: 7px;
   top: 13px;
-  background: #1e88e5;
+  color: #ffffff;
   border-radius: 4px;
   z-index: 1;
-  transition: all 0.2s ease;
-}
-
-.clearChatBroom:hover {
-  background: #1976d2;
-  transform: translateY(-1px);
-}
-
-.clearChatBroom i {
-  color: #ffffff !important;
 }
 
 .clearChatBroomNoCosmos {
@@ -208,19 +177,9 @@
   height: 40px;
   left: 7px;
   top: 66px;
-  background: #1e88e5;
+  color: #ffffff;
   border-radius: 4px;
   z-index: 1;
-  transition: all 0.2s ease;
-}
-
-.clearChatBroomNoCosmos:hover {
-  background: #1976d2;
-  transform: translateY(-1px);
-}
-
-.clearChatBroomNoCosmos i {
-  color: #ffffff !important;
 }
 
 .newChatIcon {
@@ -234,19 +193,9 @@
   height: 40px;
   left: 7px;
   top: 66px;
-  background: #1e88e5;
+  color: #ffffff;
   border-radius: 4px;
   z-index: 1;
-  transition: all 0.2s ease;
-}
-
-.newChatIcon:hover {
-  background: #1976d2;
-  transform: translateY(-1px);
-}
-
-.newChatIcon i {
-  color: #ffffff !important;
 }
 
 .stopGeneratingContainer {
@@ -264,7 +213,6 @@
   bottom: 116px;
   border: 1px solid #d1d1d1;
   border-radius: 16px;
-  background: #ffffff;
 }
 
 .stopGeneratingIcon {
@@ -286,7 +234,6 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  font-family: 'Inter', sans-serif;
 }
 
 .citationPanel {
@@ -322,7 +269,6 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  font-family: 'Inter', sans-serif;
 }
 
 .citationPanelDismiss {
@@ -344,7 +290,6 @@
   color: #323130;
   margin-top: 12px;
   margin-bottom: 12px;
-  font-family: 'Inter', sans-serif;
 }
 
 .citationPanelTitle:hover {
@@ -362,7 +307,6 @@
   order: 1;
   align-self: stretch;
   flex-grow: 0;
-  font-family: 'Inter', sans-serif;
 }
 
 .exectResultList {
@@ -387,12 +331,10 @@
   gap: 4px;
   margin: 0;
   margin-bottom: 16px;
-  font-family: 'Inter', sans-serif;
 }
 
 .exectResultList > span {
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
 }
 
 a {
@@ -412,7 +354,6 @@ a {
   gap: 4px;
   border: 1px solid #d1d1d1;
   border-radius: 4px;
-  font-family: 'Inter', sans-serif;
 }
 
 .viewSourceButton:hover {
@@ -448,23 +389,10 @@ a {
   }
 
   .chatEmptyStateTitle {
-    line-height: 42px;
-    font-size: 32px;
+    line-height: 36px;
   }
 
   .citationPanel {
     max-width: 100%;
-  }
-
-  .chatEmptyState {
-    padding: 20px 16px;
-  }
-
-  .chatEmptyStateSubtitle {
-    font-size: 16px;
-  }
-
-  .chatEmptyStateDescription {
-    font-size: 14px;
   }
 }

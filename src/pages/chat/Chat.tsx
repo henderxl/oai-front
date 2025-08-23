@@ -12,6 +12,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nord } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import styles from './Chat.module.css'
+import Contoso from '../../assets/Contoso.svg'
 import { XSSAllowTags } from '../../constants/sanatizeAllowables'
 
 import {
@@ -37,31 +38,6 @@ import { QuestionInput } from "../../components/QuestionInput";
 import { ChatHistoryPanel } from "../../components/ChatHistory/ChatHistoryPanel";
 import { AppStateContext } from "../../state/AppProvider";
 import { useBoolean } from "@fluentui/react-hooks";
-
-// Componente para el logo colorido
-const ColorfulLogo = () => (
-  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="60" cy="60" r="50" fill="url(#gradient1)" />
-    <circle cx="60" cy="60" r="35" fill="url(#gradient2)" />
-    <circle cx="60" cy="60" r="20" fill="white" />
-    <defs>
-      <radialGradient id="gradient1" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stopColor="#60D4F7" />
-        <stop offset="25%" stopColor="#4FC3F7" />
-        <stop offset="50%" stopColor="#29B6F6" />
-        <stop offset="75%" stopColor="#03A9F4" />
-        <stop offset="100%" stopColor="#0288D1" />
-      </radialGradient>
-      <radialGradient id="gradient2" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stopColor="#FFF59D" />
-        <stop offset="25%" stopColor="#FFEE58" />
-        <stop offset="50%" stopColor="#FFEB3B" />
-        <stop offset="75%" stopColor="#FDD835" />
-        <stop offset="100%" stopColor="#F9A825" />
-      </radialGradient>
-    </defs>
-  </svg>
-)
 
 const enum messageStatus {
   NotRunning = 'Not Running',
@@ -132,7 +108,7 @@ const Chat = () => {
 
   useEffect(() => {
     if (!appStateContext?.state.isLoading) {
-      setLogo('/logo.png')
+      setLogo(ui?.chat_logo || ui?.logo || Contoso)
     }
   }, [appStateContext?.state.isLoading])
 
@@ -815,12 +791,9 @@ const Chat = () => {
           <div className={styles.chatContainer}>
             {!messages || messages.length < 1 ? (
               <Stack className={styles.chatEmptyState}>
-                <ColorfulLogo />
-                <h1 className={styles.chatEmptyStateTitle}>¿En qué puedo ayudarte?</h1>
-                <h2 className={styles.chatEmptyStateSubtitle}>Soy DocuTech-Req, tu asistente de Compliance TID.</h2>
-                <p className={styles.chatEmptyStateDescription}>
-                  Estoy aquí para apoyarte en la consulta de requerimientos que hemos gestionado ante entes de supervisión y grupos de interés, tanto internos como externos. Mi propósito es brindarte información precisa y relevante que facilite su reutilización y contribuya a una toma de decisiones más ágil y acertada.
-                </p>
+                <img src={logo} className={styles.chatIcon} aria-hidden="true" />
+                <h1 className={styles.chatEmptyStateTitle}>{ui?.chat_title}</h1>
+                <h2 className={styles.chatEmptyStateSubtitle}>{ui?.chat_description}</h2>
               </Stack>
             ) : (
               <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? '40px' : '0px' }} role="log">
@@ -863,7 +836,7 @@ const Chat = () => {
                     <div className={styles.chatMessageGpt}>
                       <Answer
                         answer={{
-                          answer: "Generando respuesta...",
+                          answer: "Generating answer...",
                           citations: [],
                           generated_chart: null
                         }}
@@ -889,7 +862,7 @@ const Chat = () => {
                   onKeyDown={e => (e.key === 'Enter' || e.key === ' ' ? stopGenerating() : null)}>
                   <SquareRegular className={styles.stopGeneratingIcon} aria-hidden="true" />
                   <span className={styles.stopGeneratingText} aria-hidden="true">
-                    Detener generación
+                    Stop generating
                   </span>
                 </Stack>
               )}
@@ -906,7 +879,8 @@ const Chat = () => {
                       },
                       root: {
                         color: '#FFFFFF',
-                        background: '#1e88e5'
+                        background:
+                          'radial-gradient(109.81% 107.82% at 100.1% 90.19%, #0F6CBD 33.63%, #2D87C3 70.31%, #8DDDD8 100%)'
                       },
                       rootDisabled: {
                         background: '#F0F0F0'
@@ -930,7 +904,8 @@ const Chat = () => {
                     },
                     root: {
                       color: '#FFFFFF',
-                      background: '#1e88e5'
+                      background:
+                        'radial-gradient(109.81% 107.82% at 100.1% 90.19%, #0F6CBD 33.63%, #2D87C3 70.31%, #8DDDD8 100%)'
                     },
                     rootDisabled: {
                       background: '#F0F0F0'
@@ -958,7 +933,7 @@ const Chat = () => {
               </Stack>
               <QuestionInput
                 clearOnSend
-                placeholder="Escribe tu pregunta aquí..."
+                placeholder="Type a new question..."
                 disabled={isLoading}
                 onSend={(question, id) => {
                   appStateContext?.state.isCosmosDBAvailable?.cosmosDB

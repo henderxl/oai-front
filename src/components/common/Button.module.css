@@ -1,18 +1,13 @@
 .shareButtonRoot {
-  min-width: 120px;
-  height: 40px;
-  border-radius: 20px;
-  background: #1e88e5;
-  padding: 8px 20px;
-  border: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(30, 136, 229, 0.2);
+  width: 86px;
+  height: 32px;
+  border-radius: 4px;
+  background: radial-gradient(109.81% 107.82% at 100.1% 90.19%, #0f6cbd 33.63%, #2d87c3 70.31%, #8dddd8 100%);
+  padding: 5px 12px;
 }
 
 .shareButtonRoot:hover {
-  background: #1976d2;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(30, 136, 229, 0.3);
+  background: linear-gradient(135deg, #0f6cbd 0%, #2d87c3 51.04%, #8dddd8 100%);
 }
 
 .shareButtonRoot span {
@@ -20,7 +15,6 @@
   font-size: 14px;
   line-height: 20px;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
 }
 
 .shareButtonRoot i,
@@ -29,45 +23,26 @@
 }
 
 .historyButtonRoot {
-  min-width: 100px;
-  height: 40px;
-  border-radius: 20px;
-  background: #1e88e5;
-  border: none;
-  padding: 8px 20px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(30, 136, 229, 0.2);
+  width: 180px;
+  border: 1px solid #d1d1d1;
 }
 
 .historyButtonRoot:hover {
-  background: #1976d2;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(30, 136, 229, 0.3);
+  border: 1px solid #d1d1d1;
 }
 
 .historyButtonRoot:active {
-  background: #1565c0;
-}
-
-.historyButtonRoot span {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-}
-
-.historyButtonRoot i {
-  color: #ffffff !important;
+  border: 1px solid #d1d1d1;
 }
 
 @media (max-width: 480px) {
   .shareButtonRoot {
-    min-width: 80px;
-    padding: 8px 16px;
+    width: auto;
+    padding: 5px 8px;
   }
 
   .historyButtonRoot {
-    min-width: 80px;
-    padding: 8px 16px;
+    width: auto;
+    padding: 0 8px;
   }
 }
