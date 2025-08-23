@@ -38,75 +38,39 @@ import { ChatHistoryPanel } from "../../components/ChatHistory/ChatHistoryPanel"
 import { AppStateContext } from "../../state/AppProvider";
 import { useBoolean } from "@fluentui/react-hooks";
 
-// Componente para el logo sofisticado con diseño radial
-const SophisticatedLogo = () => (
+// Logo colorido circular mejorado
+const ColorfulLogo = () => (
   <div className={styles.logoContainer}>
-    <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Anillo exterior con segmentos */}
-      {Array.from({ length: 60 }, (_, i) => {
-        const angle = (i * 6) * Math.PI / 180;
-        const x1 = 80 + 65 * Math.cos(angle);
-        const y1 = 80 + 65 * Math.sin(angle);
-        const x2 = 80 + 75 * Math.cos(angle);
-        const y2 = 80 + 75 * Math.sin(angle);
-        
-        let color;
-        if (i < 15) color = `hsl(${190 + i * 2}, 85%, ${65 + i}%)`; // Azul a cian
-        else if (i < 30) color = `hsl(${220 - (i-15) * 2}, 80%, ${70 + (i-15)}%)`; // Cian a azul
-        else if (i < 45) color = `hsl(${50 + (i-30) * 2}, 90%, ${75 + (i-30)}%)`; // Amarillo
-        else color = `hsl(${80 - (i-45) * 2}, 85%, ${70 + (i-45)}%)`; // Amarillo a verde
-        
-        return (
-          <line
-            key={i}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke={color}
-            strokeWidth="2"
-            opacity={0.8}
-          />
-        );
-      })}
+    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#1e88e5" />
+          <stop offset="100%" stopColor="#1976d2" />
+        </linearGradient>
+        <linearGradient id="yellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#ffd54f" />
+          <stop offset="100%" stopColor="#ffb300" />
+        </linearGradient>
+        <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00bcd4" />
+          <stop offset="100%" stopColor="#0097a7" />
+        </linearGradient>
+      </defs>
       
-      {/* Anillo medio */}
-      {Array.from({ length: 40 }, (_, i) => {
-        const angle = (i * 9) * Math.PI / 180;
-        const x1 = 80 + 45 * Math.cos(angle);
-        const y1 = 80 + 45 * Math.sin(angle);
-        const x2 = 80 + 55 * Math.cos(angle);
-        const y2 = 80 + 55 * Math.sin(angle);
-        
-        let color;
-        if (i < 20) color = `hsl(${200 + i}, 75%, ${60 + i}%)`; // Azul
-        else color = `hsl(${55 + (i-20)}, 85%, ${75 + (i-20)}%)`; // Amarillo
-        
-        return (
-          <line
-            key={i}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke={color}
-            strokeWidth="1.5"
-            opacity={0.9}
-          />
-        );
-      })}
+      {/* Círculo exterior azul */}
+      <circle cx="60" cy="60" r="55" fill="none" stroke="url(#blueGradient)" strokeWidth="8" opacity="0.8" />
+      
+      {/* Segmentos coloridos */}
+      <path d="M 60 5 A 55 55 0 0 1 105 35" fill="none" stroke="url(#blueGradient)" strokeWidth="6" strokeLinecap="round" />
+      <path d="M 105 35 A 55 55 0 0 1 105 85" fill="none" stroke="url(#yellowGradient)" strokeWidth="6" strokeLinecap="round" />
+      <path d="M 105 85 A 55 55 0 0 1 60 115" fill="none" stroke="url(#cyanGradient)" strokeWidth="6" strokeLinecap="round" />
+      <path d="M 60 115 A 55 55 0 0 1 15 85" fill="none" stroke="url(#blueGradient)" strokeWidth="6" strokeLinecap="round" />
+      <path d="M 15 85 A 55 55 0 0 1 15 35" fill="none" stroke="url(#yellowGradient)" strokeWidth="6" strokeLinecap="round" />
+      <path d="M 15 35 A 55 55 0 0 1 60 5" fill="none" stroke="url(#cyanGradient)" strokeWidth="6" strokeLinecap="round" />
       
       {/* Centro blanco */}
-      <circle cx="80" cy="80" r="35" fill="white" />
-      <circle cx="80" cy="80" r="32" fill="url(#centerGradient)" />
-      
-      <defs>
-        <radialGradient id="centerGradient" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stopColor="white" />
-          <stop offset="70%" stopColor="#f8f9ff" />
-          <stop offset="100%" stopColor="#e8f4fd" />
-        </radialGradient>
-      </defs>
+      <circle cx="60" cy="60" r="25" fill="white" />
+      <circle cx="60" cy="60" r="20" fill="#f8f9ff" />
     </svg>
   </div>
 )
@@ -863,7 +827,7 @@ const Chat = () => {
           <div className={styles.chatContainer}>
             {!messages || messages.length < 1 ? (
               <Stack className={styles.chatEmptyState}>
-                <SophisticatedLogo />
+                <ColorfulLogo />
                 <h1 className={styles.chatEmptyStateTitle}>¿En qué puedo ayudarte?</h1>
                 <h2 className={styles.chatEmptyStateSubtitle}>Soy DocuTech-Req, tu asistente de Compliance TID.</h2>
                 <p className={styles.chatEmptyStateDescription}>

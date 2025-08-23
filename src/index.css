@@ -10,11 +10,12 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 html {
   background: linear-gradient(135deg, #fdfee5 0%, #f8fffe 50%, #fdf8e1 100%);
-  min-height: 100vh;
+  height: 100vh;
   font-family:
     'Inter',
     'Poppins',
@@ -25,5 +26,6 @@ html {
 
 #root {
   height: 100%;
+  width: 100%;
   background: transparent;
 }
