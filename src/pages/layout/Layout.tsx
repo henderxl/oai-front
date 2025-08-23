@@ -4,7 +4,6 @@ import { Dialog, Stack, TextField } from '@fluentui/react'
 import { CopyRegular } from '@fluentui/react-icons'
 
 import { CosmosDBStatus } from '../../api'
-import Contoso from '../../assets/Contoso.svg'
 import { HistoryButton, ShareButton } from '../../components/common/Button'
 import { AppStateContext } from '../../state/AppProvider'
 
@@ -17,7 +16,7 @@ const Layout = () => {
   const [shareLabel, setShareLabel] = useState<string | undefined>('Share')
   const [hideHistoryLabel, setHideHistoryLabel] = useState<string>('Hide chat history')
   const [showHistoryLabel, setShowHistoryLabel] = useState<string>('Show chat history')
-  const [logo, setLogo] = useState('')
+  const [logo, setLogo] = useState('/Logo_Sura.png')
   const appStateContext = useContext(AppStateContext)
   const ui = appStateContext?.state.frontendSettings?.ui
 
@@ -42,7 +41,7 @@ const Layout = () => {
 
   useEffect(() => {
     if (!appStateContext?.state.isLoading) {
-      setLogo(ui?.logo || Contoso)
+      setLogo(ui?.logo || '/Logo_Sura.png')
     }
   }, [appStateContext?.state.isLoading])
 

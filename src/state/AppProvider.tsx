@@ -146,7 +146,18 @@ export const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) 
     const getFrontendSettings = async () => {
       frontendSettings()
         .then(response => {
-          dispatch({ type: 'FETCH_FRONTEND_SETTINGS', payload: response as FrontendSettings })
+          const settings = response as FrontendSettings
+          // Aplicar configuración personalizada de Sura
+          const suraSettings = {
+            ...settings,
+            ui: {
+              ...settings?.ui,
+              title: 'DocuTech-Req',
+              chat_title: '¿En qué puedo ayudarte?',
+              chat_description: 'Soy DocuTech-Req, tu asistente de Compliance TID.\nEstoy aquí para apoyarte en la consulta de requerimientos que hemos gestionado ante entes de supervisión y grupos de interés, tanto internos como externos. Mi propósito es brindarte información precisa y relevante que facilite su reutilización y contribuya a una toma de decisiones más ágil y acertada.'
+            }
+          }
+          dispatch({ type: 'FETCH_FRONTEND_SETTINGS', payload: suraSettings })
         })
         .catch(_err => {
           console.error('There was an issue fetching your data.')
