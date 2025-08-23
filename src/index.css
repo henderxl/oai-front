@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -12,10 +13,11 @@ body {
 }
 
 html {
-  background: #fdfee5;
+  background: linear-gradient(135deg, #fdfee5 0%, #f8fffe 50%, #fdf8e1 100%);
+  min-height: 100vh;
   font-family:
     'Inter',
-    'Surasans',
+    'Poppins',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,5 +25,5 @@ html {
 
 #root {
   height: 100%;
-  background: #fdfee5;
+  background: transparent;
 }

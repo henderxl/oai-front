@@ -27,57 +27,78 @@
   max-height: calc(100vh - 100px);
 }
 
+.logoContainer {
+  margin-bottom: 32px;
+  filter: drop-shadow(0 8px 16px rgba(30, 136, 229, 0.15));
+  animation: logoFloat 6s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
 .chatEmptyState {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 60px 40px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(30,136,229,0.05) 100%);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .chatEmptyStateTitle {
   font-style: normal;
   font-weight: 700;
-  font-size: 42px;
+  font-size: 48px;
   display: flex;
   align-items: flex-end;
   text-align: center;
-  line-height: 52px;
-  margin-top: 32px;
+  line-height: 58px;
+  margin-top: 24px;
   margin-bottom: 16px;
-  color: #1e88e5;
+  background: linear-gradient(135deg, #1e88e5 0%, #1976d2 50%, #0d47a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: 'Inter', sans-serif;
+  text-shadow: 0 2px 4px rgba(30, 136, 229, 0.1);
 }
 
 .chatEmptyStateSubtitle {
-  margin-top: 8px;
+  margin-top: 16px;
   margin-bottom: 24px;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 150%;
   align-items: flex-end;
   text-align: center;
   letter-spacing: -0.01em;
-  color: #1e88e5;
+  color: #1565c0;
   font-family: 'Inter', sans-serif;
   max-width: 600px;
+  font-weight: 500;
 }
 
 .chatEmptyStateDescription {
-  margin-top: 16px;
+  margin-top: 24px;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 150%;
   text-align: center;
-  color: #374151;
+  color: #455a64;
   font-family: 'Inter', sans-serif;
-  max-width: 700px;
+  max-width: 720px;
+  opacity: 0.9;
 }
 
 .chatIcon {

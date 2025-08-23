@@ -38,29 +38,77 @@ import { ChatHistoryPanel } from "../../components/ChatHistory/ChatHistoryPanel"
 import { AppStateContext } from "../../state/AppProvider";
 import { useBoolean } from "@fluentui/react-hooks";
 
-// Componente para el logo colorido
-const ColorfulLogo = () => (
-  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="60" cy="60" r="50" fill="url(#gradient1)" />
-    <circle cx="60" cy="60" r="35" fill="url(#gradient2)" />
-    <circle cx="60" cy="60" r="20" fill="white" />
-    <defs>
-      <radialGradient id="gradient1" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stopColor="#60D4F7" />
-        <stop offset="25%" stopColor="#4FC3F7" />
-        <stop offset="50%" stopColor="#29B6F6" />
-        <stop offset="75%" stopColor="#03A9F4" />
-        <stop offset="100%" stopColor="#0288D1" />
-      </radialGradient>
-      <radialGradient id="gradient2" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stopColor="#FFF59D" />
-        <stop offset="25%" stopColor="#FFEE58" />
-        <stop offset="50%" stopColor="#FFEB3B" />
-        <stop offset="75%" stopColor="#FDD835" />
-        <stop offset="100%" stopColor="#F9A825" />
-      </radialGradient>
-    </defs>
-  </svg>
+// Componente para el logo sofisticado con diseño radial
+const SophisticatedLogo = () => (
+  <div className={styles.logoContainer}>
+    <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Anillo exterior con segmentos */}
+      {Array.from({ length: 60 }, (_, i) => {
+        const angle = (i * 6) * Math.PI / 180;
+        const x1 = 80 + 65 * Math.cos(angle);
+        const y1 = 80 + 65 * Math.sin(angle);
+        const x2 = 80 + 75 * Math.cos(angle);
+        const y2 = 80 + 75 * Math.sin(angle);
+        
+        let color;
+        if (i < 15) color = `hsl(${190 + i * 2}, 85%, ${65 + i}%)`; // Azul a cian
+        else if (i < 30) color = `hsl(${220 - (i-15) * 2}, 80%, ${70 + (i-15)}%)`; // Cian a azul
+        else if (i < 45) color = `hsl(${50 + (i-30) * 2}, 90%, ${75 + (i-30)}%)`; // Amarillo
+        else color = `hsl(${80 - (i-45) * 2}, 85%, ${70 + (i-45)}%)`; // Amarillo a verde
+        
+        return (
+          <line
+            key={i}
+            x1={x1}
+            y1={y1}
+            x2={x2}
+            y2={y2}
+            stroke={color}
+            strokeWidth="2"
+            opacity={0.8}
+          />
+        );
+      })}
+      
+      {/* Anillo medio */}
+      {Array.from({ length: 40 }, (_, i) => {
+        const angle = (i * 9) * Math.PI / 180;
+        const x1 = 80 + 45 * Math.cos(angle);
+        const y1 = 80 + 45 * Math.sin(angle);
+        const x2 = 80 + 55 * Math.cos(angle);
+        const y2 = 80 + 55 * Math.sin(angle);
+        
+        let color;
+        if (i < 20) color = `hsl(${200 + i}, 75%, ${60 + i}%)`; // Azul
+        else color = `hsl(${55 + (i-20)}, 85%, ${75 + (i-20)}%)`; // Amarillo
+        
+        return (
+          <line
+            key={i}
+            x1={x1}
+            y1={y1}
+            x2={x2}
+            y2={y2}
+            stroke={color}
+            strokeWidth="1.5"
+            opacity={0.9}
+          />
+        );
+      })}
+      
+      {/* Centro blanco */}
+      <circle cx="80" cy="80" r="35" fill="white" />
+      <circle cx="80" cy="80" r="32" fill="url(#centerGradient)" />
+      
+      <defs>
+        <radialGradient id="centerGradient" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="white" />
+          <stop offset="70%" stopColor="#f8f9ff" />
+          <stop offset="100%" stopColor="#e8f4fd" />
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
 )
 
 const enum messageStatus {
@@ -815,7 +863,7 @@ const Chat = () => {
           <div className={styles.chatContainer}>
             {!messages || messages.length < 1 ? (
               <Stack className={styles.chatEmptyState}>
-                <ColorfulLogo />
+                <SophisticatedLogo />
                 <h1 className={styles.chatEmptyStateTitle}>¿En qué puedo ayudarte?</h1>
                 <h2 className={styles.chatEmptyStateSubtitle}>Soy DocuTech-Req, tu asistente de Compliance TID.</h2>
                 <p className={styles.chatEmptyStateDescription}>
