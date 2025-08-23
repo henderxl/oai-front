@@ -12,6 +12,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nord } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import styles from './Chat.module.css'
+import Contoso from '../../assets/Contoso.svg'
 import { XSSAllowTags } from '../../constants/sanatizeAllowables'
 
 import {
@@ -62,7 +63,7 @@ const Chat = () => {
   const [clearingChat, setClearingChat] = useState<boolean>(false)
   const [hideErrorDialog, { toggle: toggleErrorDialog }] = useBoolean(true)
   const [errorMsg, setErrorMsg] = useState<ErrorMessage | null>()
-  const [logo, setLogo] = useState('/logo_centro.png')
+  const [logo, setLogo] = useState('')
   const [answerId, setAnswerId] = useState<string>('')
 
   const errorDialogContentProps = {
@@ -107,7 +108,7 @@ const Chat = () => {
 
   useEffect(() => {
     if (!appStateContext?.state.isLoading) {
-      setLogo(ui?.chat_logo || ui?.logo || '/logo_centro.png')
+      setLogo(ui?.chat_logo || ui?.logo || Contoso)
     }
   }, [appStateContext?.state.isLoading])
 
