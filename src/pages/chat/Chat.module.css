@@ -2,17 +2,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   background: #fdfee5;
-  height: calc(100vh - 80px);
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .chatRoot {
   flex: 1;
   display: flex;
-  height: 100%;
-  padding: 0 20px;
-  overflow: hidden;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  gap: 5px;
 }
 
 .chatContainer {
@@ -21,24 +23,12 @@
   flex-direction: column;
   align-items: center;
   background: #fdfee5;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.logoContainer {
-  margin-bottom: 24px;
-  filter: drop-shadow(0 4px 8px rgba(30, 136, 229, 0.1));
-  animation: logoFloat 6s ease-in-out infinite;
-}
-
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
 }
 
 .chatEmptyState {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,56 +36,48 @@
   padding: 40px 20px;
   text-align: center;
   max-width: 800px;
-  width: 100%;
-  background: transparent;
-  margin: 0;
-  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .chatEmptyStateTitle {
   font-style: normal;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 42px;
   display: flex;
   align-items: flex-end;
   text-align: center;
-  line-height: 58px;
-  margin-top: 24px;
+  line-height: 52px;
+  margin-top: 32px;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #1e88e5 0%, #1976d2 50%, #0d47a1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1e88e5;
   font-family: 'Inter', sans-serif;
 }
 
 .chatEmptyStateSubtitle {
-  margin-top: 16px;
+  margin-top: 8px;
   margin-bottom: 24px;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 150%;
   align-items: flex-end;
   text-align: center;
   letter-spacing: -0.01em;
-  color: #1565c0;
+  color: #1e88e5;
   font-family: 'Inter', sans-serif;
   max-width: 600px;
-  font-weight: 500;
 }
 
 .chatEmptyStateDescription {
-  margin-top: 24px;
+  margin-top: 16px;
   font-style: normal;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 150%;
   text-align: center;
-  color: #37474f;
+  color: #374151;
   font-family: 'Inter', sans-serif;
-  max-width: 720px;
-  opacity: 0.8;
+  max-width: 700px;
 }
 
 .chatIcon {
@@ -105,7 +87,7 @@
 }
 
 .chatMessageStream {
-  flex: 1;
+  flex-grow: 1;
   max-width: 1028px;
   width: 100%;
   overflow-y: auto;
@@ -113,8 +95,7 @@
   padding-right: 24px;
   display: flex;
   flex-direction: column;
-  padding-top: 24px;
-  padding-bottom: 120px;
+  margin-top: 24px;
 }
 
 .chatMessageUser {
@@ -178,13 +159,16 @@
 }
 
 .chatInput {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 40px);
+  position: sticky;
+  flex: 0 0 100px;
+  padding-top: 12px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: calc(100% - 100px);
   max-width: 1028px;
-  z-index: 10;
+  margin-bottom: 50px;
+  margin-top: 8px;
 }
 
 .clearChatBroom {
@@ -446,17 +430,9 @@ a {
 }
 
 @media (max-width: 480px) {
-  .container {
-    height: calc(100vh - 60px);
-  }
-
-  .chatRoot {
-    padding: 0 10px;
-  }
-
   .chatInput {
-    width: calc(100% - 20px);
-    bottom: 10px;
+    width: 90%;
+    max-width: 90%;
   }
 
   .newChatIcon {
@@ -481,12 +457,7 @@ a {
   }
 
   .chatEmptyState {
-    padding: 20px 20px;
-    margin: 0;
-  }
-
-  .logoContainer {
-    margin-bottom: 16px;
+    padding: 20px 16px;
   }
 
   .chatEmptyStateSubtitle {

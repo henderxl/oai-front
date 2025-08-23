@@ -1,29 +1,26 @@
 .shareButtonRoot {
-  min-width: 130px;
-  height: 44px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #1e88e5 0%, #1976d2 100%);
-  padding: 10px 24px;
+  min-width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background: #1e88e5;
+  padding: 8px 20px;
   border: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(30, 136, 229, 0.2);
 }
 
 .shareButtonRoot:hover {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(30, 136, 229, 0.4);
+  background: #1976d2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(30, 136, 229, 0.3);
 }
 
 .shareButtonRoot span {
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 14px;
   line-height: 20px;
   color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.02em;
+  font-family: 'Inter', sans-serif;
 }
 
 .shareButtonRoot i,
@@ -32,20 +29,20 @@
 }
 
 .historyButtonRoot {
-  min-width: 110px;
-  height: 44px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #1e88e5 0%, #1976d2 100%);
+  min-width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background: #1e88e5;
   border: none;
-  padding: 10px 24px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+  padding: 8px 20px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(30, 136, 229, 0.2);
 }
 
 .historyButtonRoot:hover {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(30, 136, 229, 0.4);
+  background: #1976d2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(30, 136, 229, 0.3);
 }
 
 .historyButtonRoot:active {
@@ -54,10 +51,9 @@
 
 .historyButtonRoot span {
   color: #ffffff;
-  font-weight: 500;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
 }
 
 .historyButtonRoot i {

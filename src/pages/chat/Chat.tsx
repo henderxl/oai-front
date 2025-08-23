@@ -38,41 +38,29 @@ import { ChatHistoryPanel } from "../../components/ChatHistory/ChatHistoryPanel"
 import { AppStateContext } from "../../state/AppProvider";
 import { useBoolean } from "@fluentui/react-hooks";
 
-// Logo colorido circular mejorado
+// Componente para el logo colorido
 const ColorfulLogo = () => (
-  <div className={styles.logoContainer}>
-    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1e88e5" />
-          <stop offset="100%" stopColor="#1976d2" />
-        </linearGradient>
-        <linearGradient id="yellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ffd54f" />
-          <stop offset="100%" stopColor="#ffb300" />
-        </linearGradient>
-        <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00bcd4" />
-          <stop offset="100%" stopColor="#0097a7" />
-        </linearGradient>
-      </defs>
-      
-      {/* Círculo exterior azul */}
-      <circle cx="60" cy="60" r="55" fill="none" stroke="url(#blueGradient)" strokeWidth="8" opacity="0.8" />
-      
-      {/* Segmentos coloridos */}
-      <path d="M 60 5 A 55 55 0 0 1 105 35" fill="none" stroke="url(#blueGradient)" strokeWidth="6" strokeLinecap="round" />
-      <path d="M 105 35 A 55 55 0 0 1 105 85" fill="none" stroke="url(#yellowGradient)" strokeWidth="6" strokeLinecap="round" />
-      <path d="M 105 85 A 55 55 0 0 1 60 115" fill="none" stroke="url(#cyanGradient)" strokeWidth="6" strokeLinecap="round" />
-      <path d="M 60 115 A 55 55 0 0 1 15 85" fill="none" stroke="url(#blueGradient)" strokeWidth="6" strokeLinecap="round" />
-      <path d="M 15 85 A 55 55 0 0 1 15 35" fill="none" stroke="url(#yellowGradient)" strokeWidth="6" strokeLinecap="round" />
-      <path d="M 15 35 A 55 55 0 0 1 60 5" fill="none" stroke="url(#cyanGradient)" strokeWidth="6" strokeLinecap="round" />
-      
-      {/* Centro blanco */}
-      <circle cx="60" cy="60" r="25" fill="white" />
-      <circle cx="60" cy="60" r="20" fill="#f8f9ff" />
-    </svg>
-  </div>
+  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="50" fill="url(#gradient1)" />
+    <circle cx="60" cy="60" r="35" fill="url(#gradient2)" />
+    <circle cx="60" cy="60" r="20" fill="white" />
+    <defs>
+      <radialGradient id="gradient1" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stopColor="#60D4F7" />
+        <stop offset="25%" stopColor="#4FC3F7" />
+        <stop offset="50%" stopColor="#29B6F6" />
+        <stop offset="75%" stopColor="#03A9F4" />
+        <stop offset="100%" stopColor="#0288D1" />
+      </radialGradient>
+      <radialGradient id="gradient2" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stopColor="#FFF59D" />
+        <stop offset="25%" stopColor="#FFEE58" />
+        <stop offset="50%" stopColor="#FFEB3B" />
+        <stop offset="75%" stopColor="#FDD835" />
+        <stop offset="100%" stopColor="#F9A825" />
+      </radialGradient>
+    </defs>
+  </svg>
 )
 
 const enum messageStatus {

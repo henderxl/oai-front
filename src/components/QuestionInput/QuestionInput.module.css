@@ -1,62 +1,60 @@
 .questionInputContainer {
-  height: 70px;
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
-  backdrop-filter: blur(20px);
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  width: calc(100% - 120px);
+  max-width: 800px;
+  background: #ffffff;
   box-shadow:
-    0px 8px 32px rgba(0, 0, 0, 0.12);
-  border-radius: 35px;
-  border: 1px solid rgba(30, 136, 229, 0.2);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.2s ease;
 }
 
 .questionInputContainer:focus-within {
-  border-color: rgba(30, 136, 229, 0.4);
-  box-shadow: 0px 8px 32px rgba(30, 136, 229, 0.25);
-  transform: translateY(-2px);
+  border-color: #1e88e5;
+  box-shadow: 0px 4px 12px rgba(30, 136, 229, 0.2);
 }
 
 .questionInputTextArea {
   width: 100%;
-  line-height: 22px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  margin-left: 28px;
-  margin-right: 90px;
+  line-height: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 24px;
+  margin-right: 80px;
   border: none;
   outline: none;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   resize: none;
   background: transparent;
-  font-weight: 400;
-  color: #37474f;
 }
 
 .questionInputSendButtonContainer {
   position: absolute;
-  right: 16px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1e88e5 0%, #1976d2 100%);
+  background: #1e88e5;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+  transition: all 0.2s ease;
 }
 
 .questionInputSendButtonContainer:hover {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 6px 16px rgba(30, 136, 229, 0.4);
+  background: #1976d2;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .questionInputSendButton {
@@ -83,29 +81,9 @@
 
 @media (max-width: 480px) {
   .questionInputContainer {
-    width: 100%;
-    height: 60px;
-    border-radius: 30px;
-  }
-
-  .questionInputTextArea {
-    margin-top: 19px;
-    margin-bottom: 19px;
-    margin-left: 20px;
-    margin-right: 70px;
-    font-size: 14px;
-  }
-
-  .questionInputSendButtonContainer {
-    width: 32px;
-    height: 32px;
-    right: 14px;
-  }
-
-  .questionInputSendButton,
-  .questionInputSendButtonDisabled {
-    width: 16px;
-    height: 16px;
+    left: 50%;
+    width: calc(100% - 40px);
+    margin: 0 20px;
   }
 }
 
